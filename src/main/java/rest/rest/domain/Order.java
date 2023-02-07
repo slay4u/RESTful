@@ -8,7 +8,6 @@ import java.util.Date;
 import java.util.List;
 
 @Component
-@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
@@ -25,6 +24,13 @@ public class Order implements Serializable {
 
     @NonNull
     private List<Product> products;
+
+    public Order(@NonNull long id, @NonNull Date date, @NonNull List<Product> products) {
+        this.id = id;
+        this.date = date;
+        this.products = products;
+        this.cost = products.stream().mapToDouble((Product::getCost)).sum();
+    }
 
     @Override
     public String toString() {
