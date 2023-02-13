@@ -19,7 +19,6 @@ public class Order implements Serializable {
     @NonNull
     private Date date;
 
-    @NonNull
     private double cost;
 
     @NonNull
